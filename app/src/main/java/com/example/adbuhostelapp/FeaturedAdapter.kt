@@ -15,6 +15,8 @@ class FeaturedAdapter(private val items: List<FeaturedItem>) :
         val image: ImageView = itemView.findViewById(R.id.featured_image)
         val title: TextView = itemView.findViewById(R.id.featured_title)
         val rating: RatingBar = itemView.findViewById(R.id.featured_rating)
+        val card: androidx.cardview.widget.CardView =
+            itemView.findViewById(R.id.card_hostel)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeaturedViewHolder {
@@ -25,10 +27,24 @@ class FeaturedAdapter(private val items: List<FeaturedItem>) :
 
     override fun onBindViewHolder(holder: FeaturedViewHolder, position: Int) {
         val item = items[position]
+
         holder.image.setImageResource(item.imageRes)
         holder.title.text = item.title
         holder.rating.rating = item.rating
+
+        holder.card.setOnClickListener {
+            val uri = android.net.Uri.parse(
+                "geo:${item.latitude},${item.longitude}?q=${item.latitude},${item.longitude}(${item.title})"
+            )
+            val intent = android.content.Intent(
+                android.content.Intent.ACTION_VIEW,
+                uri
+            )
+            intent.setPackage("com.google.android.apps.maps")
+            holder.itemView.context.startActivity(intent)
+        }
     }
+
 
     override fun getItemCount(): Int = items.size
 }

@@ -79,9 +79,36 @@ class UserActivity : AppCompatActivity() {
         recyclerView.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
-        featuredList.add(FeaturedItem("ADBU Azara", R.drawable.adbu2, 3.5f))
-        featuredList.add(FeaturedItem("ADBU Sonapur", R.drawable.adbu3, 4.0f))
-        featuredList.add(FeaturedItem("ADBU Tezpur", R.drawable.abdu1, 3.0f))
+        featuredList.add(
+            FeaturedItem(
+                "ADBU Azara",
+                R.drawable.adbu2,
+                3.5f,
+                26.1158,
+                91.6136
+            )
+        )
+
+        featuredList.add(
+            FeaturedItem(
+                "ADBU Sonapur",
+                R.drawable.adbu3,
+                4.0f,
+                26.1380,
+                91.7720
+            )
+        )
+
+        featuredList.add(
+            FeaturedItem(
+                "ADBU Tezpur",
+                R.drawable.abdu1,
+                3.0f,
+                26.6528,
+                92.7926
+            )
+        )
+
 
         featuredAdapter = FeaturedAdapter(featuredList)
         recyclerView.adapter = featuredAdapter

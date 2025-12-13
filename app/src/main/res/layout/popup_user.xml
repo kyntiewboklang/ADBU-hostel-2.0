@@ -64,8 +64,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <TextView
-        android:id="@+id/report"
-        android:text="Report"
+        android:id="@+id/feehistory"
+        android:text="Payment history"
         android:padding="10dp"
         android:textSize="15sp"
         android:layout_width="wrap_content"

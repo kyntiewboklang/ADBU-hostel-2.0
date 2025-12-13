@@ -7,6 +7,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.adbuhostelapp.R
 import com.example.adbuhostelapp.model.RoomApplication
 import com.google.firebase.firestore.FirebaseFirestore
+import android.content.Intent
+import android.view.View
+import android.widget.Button
+import com.example.adbuhostelapp.PaymentActivity
+
 
 class MyRoomActivity : AppCompatActivity() {
 
@@ -17,6 +22,9 @@ class MyRoomActivity : AppCompatActivity() {
         val tvStatus = findViewById<TextView>(R.id.tvStatus)
         val tvRoomNo = findViewById<TextView>(R.id.tvRoomNo)
         val tvRoomType = findViewById<TextView>(R.id.tvRoomType)
+        val btnMakePayment = findViewById<Button>(R.id.btnMakePayment)
+
+
 
         val uid = intent.getStringExtra("UID")
 
@@ -46,7 +54,17 @@ class MyRoomActivity : AppCompatActivity() {
                     tvStatus.text = "Status: Allotted"
                     tvRoomNo.text = "Room Number: ${app.allottedRoom}"
                     tvRoomType.text = "Room Type: ${app.roomType}"
-                } else {
+
+                    btnMakePayment.visibility = View.VISIBLE
+
+                    btnMakePayment.setOnClickListener {
+                        val intent = Intent(this, PaymentActivity::class.java)
+                        intent.putExtra("ROOM_NO", app.allottedRoom)
+                        intent.putExtra("ROOM_TYPE", app.roomType)
+                        startActivity(intent)
+                    }
+                }
+                else {
                     tvStatus.text = "Room not allotted yet"
                     tvRoomNo.text = ""
                     tvRoomType.text = ""

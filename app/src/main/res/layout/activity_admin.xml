@@ -5,7 +5,7 @@
     android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="10dp">
 
     <!-- 🔹 Header -->
     <RelativeLayout
@@ -92,7 +92,7 @@
                     android:layout_centerInParent="true"
                     android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/home_icon" />
+                    android:src="@drawable/booked" />
             </RelativeLayout>
 
             <TextView
@@ -125,7 +125,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/add_icon"
+                    android:src="@drawable/group"
                     android:adjustViewBounds="true"
                     android:scaleType="fitCenter"/>
             </RelativeLayout>
@@ -213,14 +213,150 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Complaint"
+                android:text="View Complaints"
                 android:textAlignment="center"
                 android:textSize="14sp"
                 android:layout_marginTop="8dp" />
         </LinearLayout>
-
-        <!-- Fee Pending -->
     </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dashboard Overview"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#1A202C"
+        android:layout_marginBottom="12dp" />
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        android:layout_marginBottom="24dp">
 
-    <!-- 🔹 Second Icon Row (New 2 buttons) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Row 1 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:text="Total Students"
+                        android:textSize="14sp"
+                        android:textColor="#4A5568"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/tvTotalStudents"
+                        android:text="250"
+                        android:textSize="26sp"
+                        android:textStyle="bold"
+                        android:textColor="#007bff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:text="New Applicants"
+                        android:textSize="14sp"
+                        android:textColor="#4A5568"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/tvNewApplicants"
+                        android:text="5"
+                        android:textSize="26sp"
+                        android:textStyle="bold"
+                        android:textColor="#38A169"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E2E8F0"
+                android:layout_marginVertical="8dp"/>
+
+            <!-- Row 2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:text="Pending Fees"
+                        android:textSize="14sp"
+                        android:textColor="#4A5568"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/tvPendingFees"
+                        android:text="15"
+                        android:textSize="26sp"
+                        android:textStyle="bold"
+                        android:textColor="#E53E3E"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:text="Active Complaints"
+                        android:textSize="14sp"
+                        android:textColor="#4A5568"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/tvActiveComplaints"
+                        android:text="3"
+                        android:textSize="26sp"
+                        android:textStyle="bold"
+                        android:textColor="#D69E2E"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
 </LinearLayout>
