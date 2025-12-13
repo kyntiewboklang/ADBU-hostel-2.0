@@ -44,6 +44,10 @@
             android:exported="false" />
         <activity android:name=".ui.AllStudentsActivity" />
 
+        <activity
+            android:name=".ui.MyRoomActivity"
+            android:exported="false" />
+
 
 
 

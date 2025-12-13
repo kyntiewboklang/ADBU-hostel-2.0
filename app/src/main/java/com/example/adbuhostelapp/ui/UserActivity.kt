@@ -35,30 +35,46 @@ class UserActivity : AppCompatActivity() {
         setContentView(R.layout.activity_user)
 
         val btnRoomRequest = findViewById<LinearLayout>(R.id.btn_room_request)
+        val btnRoomInfo = findViewById<LinearLayout>(R.id.btn_roomdetail)
         val btnUserPayment = findViewById<LinearLayout>(R.id.btn_user_payment)
         val btnUserComplaint = findViewById<LinearLayout>(R.id.btn_user_complaint)
         val searchEditText = findViewById<EditText>(R.id.searchEditText)
         val menuIcon = findViewById<ImageView>(R.id.menu_icon)
 
+        // 🔹 Book room
         btnRoomRequest.setOnClickListener {
-            val intent = Intent(this, RoomApplicationActivity::class.java)
+            startActivity(Intent(this, RoomApplicationActivity::class.java))
+        }
+
+        // 🔹 View allotted room (UID-based)
+        btnRoomInfo.setOnClickListener {
+
+            val uid = FirebaseAuth.getInstance().currentUser?.uid
+            if (uid.isNullOrEmpty()) {
+                return@setOnClickListener
+            }
+
+            val intent = Intent(this, MyRoomActivity::class.java)
+            intent.putExtra("UID", uid)
             startActivity(intent)
         }
 
-        // Open Payment Page
+        // 🔹 Payment
         btnUserPayment.setOnClickListener {
             startActivity(Intent(this, PaymentActivity::class.java))
         }
+
+        // 🔹 Complaint
         btnUserComplaint.setOnClickListener {
             startActivity(Intent(this, ComplaintActivity::class.java))
         }
 
-        // Search Listener
+        // 🔹 Search (optional)
         searchEditText.addTextChangedListener { editable ->
             Log.d("Search", "User typed: ${editable.toString()}")
         }
 
-        // Featured RecyclerView
+        // 🔹 Featured hostels
         recyclerView = findViewById(R.id.featured_recycler)
         recyclerView.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
@@ -70,6 +86,7 @@ class UserActivity : AppCompatActivity() {
         featuredAdapter = FeaturedAdapter(featuredList)
         recyclerView.adapter = featuredAdapter
 
+        // 🔹 Menu popup
         menuIcon.setOnClickListener {
             showCustomPopup(it)
         }

@@ -1,60 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="12dp"
-    android:background="@android:color/darker_gray"
-    android:layout_marginBottom="8dp">
+    android:background="@drawable/bg_student_card"
+    android:padding="16dp"
+    android:layout_marginBottom="12dp"
+    android:elevation="4dp">
 
+    <!-- Name -->
     <TextView
         android:id="@+id/tvName"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:textColor="@android:color/black"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="Name: John Doe"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="8dp"/>
 
+    <!-- ID -->
     <TextView
         android:id="@+id/tvStudentId"
-        android:textColor="@android:color/black"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="ID: dc2024bte0037"
+        android:textSize="14sp"
+        android:textColor="#555555"/>
 
+    <!-- Phone -->
     <TextView
         android:id="@+id/tvPhone"
-        android:textColor="@android:color/black"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="Phone: 9876543210"
+        android:textSize="14sp"
+        android:textColor="#555555"/>
 
+    <!-- DOB -->
     <TextView
         android:id="@+id/tvDob"
-        android:textColor="@android:color/black"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="DOB: 12/12/2002"
+        android:textSize="14sp"
+        android:textColor="#555555"/>
 
+    <!-- Address -->
     <TextView
         android:id="@+id/tvAddress"
-        android:textColor="@android:color/black"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="Address: Guwahati"
+        android:textSize="14sp"
+        android:textColor="#555555"
+        android:layout_marginBottom="8dp"/>
 
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Room Type -->
     <TextView
         android:id="@+id/tvRoomType"
-        android:textColor="@android:color/black"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="Room Type: Single"
+        android:textSize="14sp"
+        android:textColor="@android:color/black"/>
 
+    <!-- Allotted Room -->
     <TextView
         android:id="@+id/tvAllottedRoom"
-        android:textColor="@android:color/black"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="Allotted Room: 101"
+        android:textSize="14sp"
+        android:textColor="@android:color/black"/>
 
+    <!-- Status -->
     <TextView
         android:id="@+id/tvStatus"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
+        android:layout_height="wrap_content"
+        android:text="Status: Allotted"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#2E7D32"
+        android:layout_marginTop="6dp"/>
 </LinearLayout>
