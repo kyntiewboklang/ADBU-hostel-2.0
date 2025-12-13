@@ -1,10 +1,12 @@
-package com.example.adbuhostelapp
+package com.example.adbuhostelapp.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.adbuhostelapp.ui.LoginActivity
+import com.example.adbuhostelapp.R
 
 class HomeActivity : AppCompatActivity() {
 

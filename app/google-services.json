@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "761830969092",
+    "project_id": "adbu-hostel-app",
+    "storage_bucket": "adbu-hostel-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:761830969092:android:8ba8dd00221e9a0c4e8a51",
+        "android_client_info": {
+          "package_name": "com.example.adbuhostelapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCn2PXEA6ImF9Brzht0Ur4jegGTN5xkMQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:761830969092:android:5548cd64e67c1bfa4e8a51",
+        "android_client_info": {
+          "package_name": "com.example.login_page"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCn2PXEA6ImF9Brzht0Ur4jegGTN5xkMQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
