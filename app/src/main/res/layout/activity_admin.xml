@@ -1,6 +1,227 @@
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:text="Admin Dashboard"
-    android:gravity="center"
-    android:textSize="24sp"/>
+    android:padding="16dp">
+
+    <!-- 🔹 Header -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/menu_icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="324dp"
+            android:clickable="true"
+            android:contentDescription="@string/menu_icon_desc"
+            android:focusable="true"
+            android:src="@drawable/menubar" />
+
+        <TextView
+            android:id="@+id/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+    <!-- 🔹 Search Bar -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/white"
+        android:elevation="4dp"
+        android:layout_marginTop="16dp"
+        android:paddingHorizontal="16dp">
+
+        <EditText
+            android:id="@+id/searchEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Search..."
+            android:textColor="#000000"
+            android:textColorHint="#757575"
+            android:background="@android:color/transparent"
+            android:inputType="text"
+            android:drawableStart="@android:drawable/ic_menu_search"
+            android:drawablePadding="8dp"
+            android:padding="8dp" />
+    </RelativeLayout>
+
+    <!-- 🔹 First Icon Row (Existing 3 buttons) -->
+    <LinearLayout
+        android:id="@+id/icon_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_edittext"
+        android:backgroundTint="@color/white"
+        android:gravity="center"
+        android:layout_marginTop="32dp"
+        android:weightSum="3">
+
+        <!-- Room Status -->
+        <LinearLayout
+            android:id="@+id/btn_applicants"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp">
+
+            <RelativeLayout
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_edittext"
+                android:backgroundTint="@color/medium_blue">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:layout_centerInParent="true"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/home_icon" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Applicants"
+                android:textAlignment="center"
+                android:textSize="14sp"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+
+        <!-- Add Rooms -->
+        <LinearLayout
+            android:id="@+id/btn_student_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp">
+
+            <RelativeLayout
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/rounded_edittext"
+                android:backgroundTint="@color/medium_blue"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/add_icon"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"/>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Student Info"
+                android:textAlignment="center"
+                android:textSize="14sp"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_fee_pending"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <RelativeLayout
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:background="#FFF9C4">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerInParent="true"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/fee_icon" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Fee Pending"
+                android:textAlignment="center"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Payment History -->
+    </LinearLayout>
+
+    <!-- 🔹 Second Icon Row (New 2 buttons) -->
+    <LinearLayout
+        android:id="@+id/icon_row_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="24dp"
+        android:weightSum="2">
+
+        <!-- Complaint -->
+        <LinearLayout
+            android:id="@+id/btn_complaint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp">
+
+            <RelativeLayout
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="#FFCDD2"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/complaint_icon"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"/>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Complaint"
+                android:textAlignment="center"
+                android:textSize="14sp"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+
+        <!-- Fee Pending -->
+    </LinearLayout>
+
+    <!-- 🔹 Second Icon Row (New 2 buttons) -->
+</LinearLayout>

@@ -36,6 +36,14 @@
         <activity android:name=".ui.RoomApplicationActivity" />
         <activity android:name=".PaymentActivity" />
         <activity android:name=".ComplaintActivity" />
+        <activity
+            android:name=".ui.ViewApplicantActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.AllotRoomActivity"
+            android:exported="false" />
+        <activity android:name=".ui.AllStudentsActivity" />
+
 
 
 
