@@ -92,7 +92,11 @@ class UserActivity : AppCompatActivity() {
             .addSnapshotListener { snap, _ ->
                 if (snap == null) return@addSnapshotListener
 
-                val list = snap.toObjects(Announcement::class.java)
+                val list = snap.documents.mapNotNull { doc ->
+                    doc.toObject(Announcement::class.java)?.let {
+                        doc.id to it
+                    }
+                }
 
                 if (list.isEmpty()) {
                     tvEmpty.visibility = View.VISIBLE
