@@ -218,6 +218,38 @@
                 android:textSize="14sp"
                 android:layout_marginTop="8dp" />
         </LinearLayout>
+        <LinearLayout
+            android:id="@+id/btn_announcement"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp">
+
+            <RelativeLayout
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="#FFCDD2"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/add_icon"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"/>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Make Announcement"
+                android:textAlignment="center"
+                android:textSize="14sp"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
     </LinearLayout>
     <TextView
         android:layout_width="wrap_content"

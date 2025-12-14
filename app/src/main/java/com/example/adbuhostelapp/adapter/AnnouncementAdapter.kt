@@ -1,0 +1,40 @@
+package com.example.adbuhostelapp.adapter
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.example.adbuhostelapp.R
+import com.example.adbuhostelapp.model.Announcement
+
+class AnnouncementAdapter
+    : RecyclerView.Adapter<AnnouncementAdapter.VH>() {
+
+    private val list: MutableList<Announcement> = mutableListOf()
+
+    fun setData(data: List<Announcement>) {
+        list.clear()
+        list.addAll(data)
+        notifyDataSetChanged()
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
+        val v = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_announcement, parent, false)
+        return VH(v)
+    }
+
+    override fun onBindViewHolder(holder: VH, position: Int) {
+        val a = list[position]
+        holder.title.text = a.title
+        holder.message.text = a.message
+    }
+
+    override fun getItemCount(): Int = list.size
+
+    class VH(v: View) : RecyclerView.ViewHolder(v) {
+        val title: TextView = v.findViewById(R.id.tv_title)
+        val message: TextView = v.findViewById(R.id.tv_message)
+    }
+}

@@ -16,6 +16,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
+import com.example.adbuhostelapp.AdminAnnouncementActivity
 import com.example.adbuhostelapp.R
 
 class AdminActivity : AppCompatActivity() {
@@ -25,12 +26,14 @@ class AdminActivity : AppCompatActivity() {
 
         // 🔹 Connect UI elements to code
         val btnRoomStatus = findViewById<LinearLayout>(R.id.btn_applicants)
-        val btnComplaint = findViewById<LinearLayout>(R.id.btn_complaint) // NEW
+        val btnComplaint = findViewById<LinearLayout>(R.id.btn_complaint)
         val btnFeePending = findViewById<LinearLayout>(R.id.btn_fee_pending)
         val searchEditText = findViewById<EditText>(R.id.searchEditText)
         val studentinfo = findViewById<LinearLayout>(R.id.btn_student_info)
+        val btnannouncement = findViewById<LinearLayout>(R.id.btn_announcement)
 
         val menuIcon = findViewById<ImageView>(R.id.menu_icon)
+
 
 
         // 🔹 Handle button clicks
@@ -47,11 +50,11 @@ class AdminActivity : AppCompatActivity() {
         }
 
 
-//        btnComplaint.setOnClickListener {
-//            Log.d("AdminActivity", "Complaint clicked")
-//            val intent = Intent(this, ComplaintActivity::class.java)
-//            startActivity(intent)
-//        }
+        btnannouncement.setOnClickListener {
+            Toast.makeText(this, "Opening Announcement ", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, AdminAnnouncementActivity::class.java)
+            startActivity(intent)
+        }
 //
 //        btnFeePending.setOnClickListener {
 //            Log.d("AdminActivity", "Fee Pending clicked")

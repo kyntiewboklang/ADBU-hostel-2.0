@@ -22,7 +22,11 @@ import com.example.adbuhostelapp.FeaturedAdapter
 import com.example.adbuhostelapp.FeaturedItem
 import com.example.adbuhostelapp.PaymentActivity
 import com.example.adbuhostelapp.R
+import com.example.adbuhostelapp.adapter.AnnouncementAdapter
+import com.example.adbuhostelapp.model.Announcement
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
 class UserActivity : AppCompatActivity() {
 
@@ -40,6 +44,10 @@ class UserActivity : AppCompatActivity() {
         val btnUserComplaint = findViewById<LinearLayout>(R.id.btn_user_complaint)
         val searchEditText = findViewById<EditText>(R.id.searchEditText)
         val menuIcon = findViewById<ImageView>(R.id.menu_icon)
+
+        val rv = findViewById<RecyclerView>(R.id.rv_announcements)
+        val tvEmpty = findViewById<TextView>(R.id.tv_no_announcements)
+
 
         // 🔹 Book room
         btnRoomRequest.setOnClickListener {
@@ -73,6 +81,28 @@ class UserActivity : AppCompatActivity() {
         searchEditText.addTextChangedListener { editable ->
             Log.d("Search", "User typed: ${editable.toString()}")
         }
+
+        val adapter = AnnouncementAdapter()
+        rv.layoutManager = LinearLayoutManager(this)
+        rv.adapter = adapter
+        val db = FirebaseFirestore.getInstance()
+
+        db.collection("announcements")
+            .orderBy("timestamp", Query.Direction.DESCENDING)
+            .addSnapshotListener { snap, _ ->
+                if (snap == null) return@addSnapshotListener
+
+                val list = snap.toObjects(Announcement::class.java)
+
+                if (list.isEmpty()) {
+                    tvEmpty.visibility = View.VISIBLE
+                    rv.visibility = View.GONE
+                } else {
+                    tvEmpty.visibility = View.GONE
+                    rv.visibility = View.VISIBLE
+                    adapter.setData(list)
+                }
+            }
 
         // 🔹 Featured hostels
         recyclerView = findViewById(R.id.featured_recycler)
