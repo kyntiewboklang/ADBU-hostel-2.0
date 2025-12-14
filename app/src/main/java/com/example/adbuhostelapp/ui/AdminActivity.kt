@@ -17,6 +17,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import com.example.adbuhostelapp.AdminAnnouncementActivity
+import com.example.adbuhostelapp.AdminComplaintActivity
 import com.example.adbuhostelapp.R
 
 class AdminActivity : AppCompatActivity() {
@@ -46,6 +47,12 @@ class AdminActivity : AppCompatActivity() {
         studentinfo.setOnClickListener {
             Toast.makeText(this, "Opening Student Info", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, AllStudentsActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnComplaint.setOnClickListener {
+            Toast.makeText(this, "Opening Complaints", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, AdminComplaintActivity::class.java)
             startActivity(intent)
         }
 

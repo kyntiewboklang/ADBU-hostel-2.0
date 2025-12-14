@@ -5,37 +5,57 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import kotlin.text.isEmpty
-import kotlin.text.trim
-
+import com.example.adbuhostelapp.model.Complaint
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class ComplaintActivity : AppCompatActivity() {
+
+    private lateinit var etTitle: EditText
+    private lateinit var etDesc: EditText
+    private lateinit var btnSubmit: Button
+
+    private val db = FirebaseFirestore.getInstance()
+    private val auth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_complaint)
 
-        val etTitle = findViewById<EditText>(R.id.etComplaintTitle)
-        val etDesc = findViewById<EditText>(R.id.etComplaintDesc)
-        val btnSubmit = findViewById<Button>(R.id.btnSubmitComplaint)
+        etTitle = findViewById(R.id.etComplaintTitle)
+        etDesc = findViewById(R.id.etComplaintDesc)
+        btnSubmit = findViewById(R.id.btnSubmitComplaint)
 
         btnSubmit.setOnClickListener {
-            val title = etTitle.text.toString().trim()
-            val description = etDesc.text.toString().trim()
-
-            if (title.isEmpty()) {
-                etTitle.error = "Enter a title"
-                return@setOnClickListener
-            }
-
-            if (description.isEmpty()) {
-                etDesc.error = "Enter your complaint"
-                return@setOnClickListener
-            }
-
-            Toast.makeText(this, "Complaint Submitted!", Toast.LENGTH_LONG).show()
-
-            finish()
+            submitComplaint()
         }
+    }
+
+    private fun submitComplaint() {
+        val title = etTitle.text.toString().trim()
+        val desc = etDesc.text.toString().trim()
+        val userId = auth.currentUser?.uid ?: "anonymous"
+
+        if (title.isEmpty() || desc.isEmpty()) {
+            Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val complaint = Complaint(
+            title = title,
+            description = desc,
+            userId = userId
+        )
+
+        db.collection("complaints")
+            .add(complaint)
+            .addOnSuccessListener {
+                Toast.makeText(this, "Complaint submitted", Toast.LENGTH_SHORT).show()
+                etTitle.text.clear()
+                etDesc.text.clear()
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "Failed to submit complaint", Toast.LENGTH_SHORT).show()
+            }
     }
 }

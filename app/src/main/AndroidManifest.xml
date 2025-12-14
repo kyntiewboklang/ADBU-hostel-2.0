@@ -48,6 +48,8 @@
             android:name=".ui.MyRoomActivity"
             android:exported="false" />
 
+        <activity android:name=".AdminComplaintActivity"/>
+
         <activity
             android:name=".AdminAnnouncementActivity"
             android:exported="false" />
