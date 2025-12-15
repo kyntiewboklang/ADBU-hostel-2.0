@@ -51,6 +51,12 @@
         <activity android:name=".AdminComplaintActivity"/>
 
         <activity
+            android:name=".admin.AdminPaymentHistoryActivity"
+            android:exported="false" />
+
+
+
+        <activity
             android:name=".AdminAnnouncementActivity"
             android:exported="false" />
 

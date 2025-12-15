@@ -19,6 +19,7 @@ import androidx.core.widget.addTextChangedListener
 import com.example.adbuhostelapp.AdminAnnouncementActivity
 import com.example.adbuhostelapp.AdminComplaintActivity
 import com.example.adbuhostelapp.R
+import com.example.adbuhostelapp.admin.AdminPaymentHistoryActivity
 
 class AdminActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +33,7 @@ class AdminActivity : AppCompatActivity() {
         val searchEditText = findViewById<EditText>(R.id.searchEditText)
         val studentinfo = findViewById<LinearLayout>(R.id.btn_student_info)
         val btnannouncement = findViewById<LinearLayout>(R.id.btn_announcement)
+        val paymenthistory = findViewById<LinearLayout>(R.id.btn_fee_pending)
 
         val menuIcon = findViewById<ImageView>(R.id.menu_icon)
 
@@ -41,6 +43,11 @@ class AdminActivity : AppCompatActivity() {
         btnRoomStatus.setOnClickListener {
             Toast.makeText(this, "Opening Applicants form", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, ViewApplicantActivity::class.java)
+            startActivity(intent)
+        }
+        paymenthistory.setOnClickListener {
+            Toast.makeText(this, "Opening Payment history", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, AdminPaymentHistoryActivity::class.java)
             startActivity(intent)
         }
 
